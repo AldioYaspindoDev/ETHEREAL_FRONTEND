@@ -1,42 +1,19 @@
 import axios from "axios";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
-import UserTable from "./UserTable";
-import { cookies } from "next/headers";
+import UserTableClient from "./UserTableClient";
+import { fetchUsers } from "./server";
+
 export const dynamic = "force-dynamic";
 
-const fetchUsers = async () => {
-  try {
-    const token = cookies().get("adminToken")?.value; // Server-side token
-    if (!token) {
-      console.log("TOKEN TIDAK ADA (Server)");
-      return [];
-    }
-
-    const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/admin`,
-      {
-        withCredentials: true, // penting agar cookie dikirim otomatis
-      }
-    );
-
-    console.log("Users fetched:", res.data.data);
-    return res.data.data || [];
-  } catch (error) {
-    console.error(
-      "ERROR FETCH USERS (Server):",
-      error.response?.status,
-      error.response?.data
-    );
-    return [];
-  }
-};
 export default async function UserPage() {
+
   const users = await fetchUsers();
+
   return (
     <div>
       {/* Header */}
-      <div className="relative w-full h-48 mt-10 mx-auto max-w-[1171px]">
+      <div className="relative  w-full h-48 mt-10 mx-auto max-w-[1171px]">
         <img
           src="/assetgambar/imageStore.webp"
           alt=""
@@ -49,6 +26,7 @@ export default async function UserPage() {
           USER ADMIN
         </h1>
       </div>
+
       <div className="mt-[30px] ms-[15px] flex flex-col w-[140px]">
         <Link
           href="/admin/user/createUser"
@@ -58,9 +36,10 @@ export default async function UserPage() {
           <span>Tambah</span>
         </Link>
       </div>
+
+      {/* Pass initial users HANYA ke Client Component */}
       <div className="mx-auto max-w-[1171px] mt-10 px-4 mb-10">
-        {/* Kirim data 'users' yang sudah di-fetch sebagai 'initialUsers' */}
-        <UserTable initialUsers={users} />
+        <UserTableClient initialUsers={users} />
       </div>
     </div>
   );

@@ -56,7 +56,7 @@ export default function CatalogTable({ initialCatalogs }) {
   return (
     <>
       {/* Desktop Table View - Hidden on mobile */}
-      <div className="hidden md:block w-full overflow-x-auto">
+      <div className="hidden  md:block w-full overflow-x-auto">
         <table className="w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden">
           <thead className="bg-neutral-800 text-white">
             <tr>

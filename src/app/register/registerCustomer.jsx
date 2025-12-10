@@ -18,7 +18,7 @@ export default function CustomerRegister() {
     setError("");
 
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/customer/register`, {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/customer/register`, {
         username,
         nomorhp,
         password,
