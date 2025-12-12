@@ -15,10 +15,8 @@ export const addToCart = async (productId, quantity = 1, options = {}) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Tambahkan baris ini. Tanpa ini, backend menganggap Anda tamu (401)
-        Authorization: `Bearer ${token}`,
       },
-      // credentials: "include", // Opsional: Hapus atau biarkan, tapi Authorization header lebih prioritas
+      credentials: "true", // Kirim cookies otomatis
       body: JSON.stringify({
         productId,
         quantity,
@@ -88,8 +86,7 @@ export const addToCartAxios = async (productId, quantity = 1, options = {}) => {
           status: 401,
           data: {
             requireAuth: true,
-            message:
-              error.response.data?.message || "Silakan login terlebih dahulu",
+            message: error.response.data?.message || "Silakan login terlebih dahulu",
           },
         },
       };
