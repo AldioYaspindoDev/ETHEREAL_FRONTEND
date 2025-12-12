@@ -57,7 +57,7 @@ export default function ArticlesPage() {
             Belum ada artikel yang tersedia.
           </p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {artikels.map((item, index) => (
               <ArticleCard key={index} item={item} />
             ))}

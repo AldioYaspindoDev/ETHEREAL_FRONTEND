@@ -10,7 +10,7 @@ import Lokasi from "./Lokasi";
 import Footer from "@/components/Footer";
 
 export default function About() {
-  console.log("✅ API URL:", process.env.NEXT_PUBLIC_API_URL);
+  console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
   return (
     <main>
       <Navbar />

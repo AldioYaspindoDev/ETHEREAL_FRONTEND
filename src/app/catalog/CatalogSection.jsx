@@ -54,7 +54,7 @@ const CatalogSection = () => {
             Belum ada catalog yang tersedia.
           </p>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {catalogs.map((item, index) => (
               <CatalogCards key={index} item={item} />
             ))}
