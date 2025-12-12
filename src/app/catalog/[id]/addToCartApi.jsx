@@ -16,7 +16,7 @@ export const addToCart = async (productId, quantity = 1, options = {}) => {
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "true", // Kirim cookies otomatis
+      credentials: "include", // Kirim cookies otomatis
       body: JSON.stringify({
         productId,
         quantity,
