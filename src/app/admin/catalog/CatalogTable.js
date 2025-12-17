@@ -91,45 +91,32 @@ export default function CatalogTable({ initialCatalogs }) {
                     {catalog.productName}
                   </td>
 
-                  <td className="px-4 py-3">
-                    {catalog.productPrice}
-                  </td>
+                  <td className="px-4 py-3">{catalog.productPrice}</td>
 
-                  <td className="px-4 py-3">
-                    {catalog.colors}
-                  </td>
+                  <td className="px-4 py-3">{catalog.colors}</td>
 
-                  <td className="px-4 py-3">
-                    {catalog.sizes}
-                  </td>
+                  <td className="px-4 py-3">{catalog.sizes}</td>
 
-                  <td className="px-4 py-3">
-                    {catalog.stock}
-                  </td>
+                  <td className="px-4 py-3">{catalog.stock}</td>
 
-                  <td className="px-4 py-3">
-                    {catalog.category}
-                  </td>
+                  <td className="px-4 py-3">{catalog.category}</td>
 
-                  
                   {/* DESKRIPSI */}
                   <td className="px-4 py-3 text-sm">
                     {catalog.productDescription?.slice(0, 40)}...
                   </td>
-
-                  {/* GAMBAR MULTIPLE PER VARIANT */}
                   <td className="px-4 py-3">
-                    <div className="flex flex-wrap gap-2">
-                      {catalog.productImages?.map((img) => (
+                    {catalog.productImages
+                      ?.filter((img) => img.isPrimary)
+                      .map((img) => (
                         <Image
-                          key={img.publicId} // atau img.id
+                          key={img.publicId}
                           src={img.url}
                           width={80}
                           height={80}
                           alt={catalog.productName}
                         />
                       ))}
-                    </div>
                   </td>
 
                   {/* ACTION BUTTONS */}

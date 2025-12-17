@@ -58,14 +58,14 @@ export default function AdminMenu() {
       {/* Sidebar */}
       <aside
         className={`
-          w-[300px] h-screen bg-neutral-900 flex flex-col
+          w-[300px] min-h-screen bg-neutral-900 flex flex-col
           fixed md:relative z-40
           transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
         style={{
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none'
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
         }}
       >
         {/* Logo - Fixed at top */}
@@ -80,11 +80,11 @@ export default function AdminMenu() {
         </div>
 
         {/* Scrollable Menu Area */}
-        <div 
+        <div
           className="flex-1 overflow-y-auto px-8 bg-neutral-900"
           style={{
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none'
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
         >
           <style jsx>{`

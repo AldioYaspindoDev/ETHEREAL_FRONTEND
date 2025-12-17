@@ -195,7 +195,7 @@ const handleSubmit = (e) => {
             <input
               type="text"
               className="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Contoh: Pakaian, Elektronik, dll"
+              placeholder="Contoh: Premium, Polo, dll"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             />
