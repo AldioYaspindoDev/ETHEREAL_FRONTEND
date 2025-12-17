@@ -202,7 +202,7 @@ export default function ProductDetail({ params }) {
 
 Apakah produk ini masih tersedia?`;
 
-    const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/62895415019150?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsappUrl, "_blank");
