@@ -147,13 +147,20 @@ export default function PortofolioForm({
                     <X className="w-4 h-4" />
                   </button>
                   <div className="mt-3 text-center">
-                    <p className="text-xs text-gray-500">
-                      Klik tombol di bawah untuk mengganti gambar
-                    </p>
+                    <label
+                      htmlFor="gambarFile"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors cursor-pointer text-sm font-medium"
+                    >
+                      <ImageIcon className="w-4 h-4" />
+                      Ganti Gambar
+                    </label>
                   </div>
                 </div>
               ) : (
-                <div className="flex flex-col items-center justify-center py-8 text-gray-500">
+                <label
+                  htmlFor="gambarFile"
+                  className="flex flex-col items-center justify-center py-8 text-gray-500 cursor-pointer"
+                >
                   <div className="w-12 h-12 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center mb-3">
                     <ImageIcon className="w-6 h-6" />
                   </div>
@@ -163,7 +170,7 @@ export default function PortofolioForm({
                   <p className="text-xs text-gray-400 mt-1">
                     PNG, JPG, JPEG (Max. 5MB)
                   </p>
-                </div>
+                </label>
               )}
 
               <input
@@ -172,16 +179,9 @@ export default function PortofolioForm({
                 name="gambarFile"
                 accept="image/*"
                 onChange={handleFileChange}
-                className={`absolute inset-0 w-full h-full opacity-0 cursor-pointer ${
-                  previewUrl ? "h-[calc(100%-2rem)]" : ""
-                }`}
+                className="hidden"
               />
             </div>
-            {/* Fallback Input for replace logic if preview exists, slightly hacky visually but functional, 
-                 or better yet rely on the overlay input above. 
-                 The minimal approach: The file input covers the area. 
-                 If preview exists, we might want a explicit "Change" button, 
-                 but overlay works for now. */}
           </div>
 
           {/* ACTIONS */}
